@@ -11,7 +11,8 @@ namespace GOL
         static void Main(string[] args)
         {
             char[,] board = new char[8, 8];//'1' = live---'_' = death
-            int count = 0;//combien ya t il de pixel en vit autour de lui ( si il est en vit ) 
+            int count = 0;//combien ya t il de pixel en vit autour de lui 
+
             for (int i = 0; i < board.GetLength(0); i++)//ligne
             {
                 for (int j = 0; j < board.GetLength(1); j++)//tour
@@ -58,13 +59,21 @@ namespace GOL
                         //[ ][ ][ ]
                         //[ ][1][ ]
                         //[ ][ ][?]
-                        if (count > 3 || count < 2)
+                        if (count > 3 || count < 2)//3 eme regle
+                        {
                             board[i, j] = '_';
-
+                        }
+                        else if(count == 3)//1 eme regle
+                        {
+                            board[i, j] = '1';
+                        }
+                            count = 0;
 
                     }
                 }
             }
+
+           
 
         }
     }
