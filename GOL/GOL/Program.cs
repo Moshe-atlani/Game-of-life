@@ -12,6 +12,16 @@ namespace GOL
         {
             char[,] board = new char[8, 8];//'1' = live---'_' = death
             int count = 0;//combien ya t il de pixel en vit autour de lui 
+            char x;
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    //board[i, j] = char.Parse(Console.ReadLine());
+                    x = char.Parse(Console.ReadLine());
+                    board[i, j] = x;
+                }
+            }//sa marche pAS
 
             for (int i = 0; i < board.GetLength(0); i++)//ligne
             {
@@ -63,17 +73,18 @@ namespace GOL
                         {
                             board[i, j] = '_';
                         }
-                        else if(count == 3)//1 eme regle
+                        else if (count == 3)//1 eme regle
                         {
                             board[i, j] = '1';
                         }
-                            count = 0;
-
+                        count = 0;
+                        Console.Write(board[i,j]);
                     }
+                    Console.WriteLine();
                 }
             }
 
-           
+
 
         }
     }
