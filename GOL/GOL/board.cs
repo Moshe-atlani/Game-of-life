@@ -8,7 +8,7 @@ namespace GOL
 {
     class Board
     {
-        char[,] grid;//'1' = live---'_' = death
+        public char[,] grid;//'1' = live---'_' = death
 
         public Board()
         {
@@ -26,14 +26,6 @@ namespace GOL
         { '1', '1', '_', '_', '_', '_', '_', '_', '_', '1',}//10
         };
 
-            //Random rnd = new Random();
-            //for (int i = 0; i < b.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < b.GetLength(1); j++)
-            //    {
-            //        b[i, j] = (char)rnd.Next('1', '_'); 
-            //    }
-            //}//sa marche pAS ?
         }
 
         public char[,] GetGrid()
@@ -41,16 +33,26 @@ namespace GOL
             return grid;
         }
 
-        public void ShowTheGrid(char[,]b)
+        public void ShowTheGrid()
         {
-            for (int i = 0; i < b.GetLength(0); i++)
+            for (int i = 0; i < grid.GetLength(0); i++)
             {
-                for (int j = 0; j < b.GetLength(1); j++)
+                for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    Console.Write(b[i,j]);
+                    Console.Write(grid[i,j]);
                 }
                 Console.WriteLine();
             }
+        }
+
+        public void ChangeTheCell(int i, int j, char dieOrLive)
+        {
+            grid[i, j] = dieOrLive;
+        }
+
+        public void ChangeTheGrid(char[,] new_grid)
+        {
+            grid = new_grid;
         }
     }
 }

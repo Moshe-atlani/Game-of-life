@@ -11,11 +11,11 @@ namespace GOL
         static void Main(string[] args)
         {
             Board bo = new Board();
-            Rulse ru = new Rulse();
-            //Console.WriteLine(bo.GetGrid()[0,1]);
-            bo.ShowTheGrid(bo.GetGrid());
-            Console.WriteLine("lechangement c  maintenen");
-            bo.ShowTheGrid(ru.NewStepRulse(bo.GetGrid()));
+            Rules ru = new Rules();
+
+            bo.ShowTheGrid();
+            ru.NewStepRulse();//cencer changer le  coeur du grid(dans le Board)--->donc changer le print de ShowTheGrid
+
 
         }
     }
