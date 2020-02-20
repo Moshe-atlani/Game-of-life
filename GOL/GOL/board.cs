@@ -41,7 +41,9 @@ namespace GOL
                 {
                     Console.Write(grid[i,j]);
                 }
-                Console.WriteLine();
+                Console.WriteLine("test ");
+                Console.WriteLine("secou ets");
+
             }
         }
 

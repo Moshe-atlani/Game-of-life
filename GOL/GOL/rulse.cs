@@ -32,6 +32,7 @@ namespace GOL
                     
                         if (b[i, j + 1] == '1')
                             neighbour++;
+                        int x = 2;
                         //[ ][ ][ ]
                         //[ ][1][?]
                         //[ ][ ][ ]
