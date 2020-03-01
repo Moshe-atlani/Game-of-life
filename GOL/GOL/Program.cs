@@ -9,12 +9,13 @@ namespace GOL
     class Program
     {
         static void Main(string[] args)
-        {
-            Board bo = new Board();
-            Rules ru = new Rules();
+        { 
 
-            bo.ShowTheGrid();
-            ru.NewStepRulse();//cencer changer le  coeur du grid(dans le Board)--->donc changer le print de ShowTheGrid
+            Board board = new Board();
+            Rules rules = new Rules();
+
+            board.ShowTheGrid();
+            rules.NewStepRulse();//cencer changer le  coeur du grid(dans le Board)--->donc changer le print de ShowTheGrid
 
 
         }

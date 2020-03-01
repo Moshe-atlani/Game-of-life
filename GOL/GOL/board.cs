@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GOL.GridShowers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,13 @@ namespace GOL
 {
     class Board
     {
-        public char[,] grid;//'1' = live---'_' = death
+        private char[,] grid;//'1' = live---'_' = death
+        private IGridShower GridShower; 
+
 
         public Board()
         {
+            GridShower = new ConsoleGridShower();
             grid = new char[,]
         {
         { '1', '_', '_', '_', '_', '_', '_', '_', '1', '1',},//1
@@ -35,17 +39,9 @@ namespace GOL
 
         public void ShowTheGrid()
         {
-            for (int i = 0; i < grid.GetLength(0); i++)
-            {
-                for (int j = 0; j < grid.GetLength(1); j++)
-                {
-                    Console.Write(grid[i,j]);
-                }
-                Console.WriteLine("test ");
-                Console.WriteLine("secou ets");
-
-            }
+            GridShower.show(this);
         }
+    
 
         public void ChangeTheCell(int i, int j, char dieOrLive)
         {
