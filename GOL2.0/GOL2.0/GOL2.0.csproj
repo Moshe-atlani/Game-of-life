@@ -46,7 +46,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="ConsoleGridShower.cs" />
-    <Compile Include="interface IGridShower.cs" />
+    <Compile Include="IGridShower.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

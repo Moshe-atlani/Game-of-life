@@ -127,6 +127,7 @@ namespace GOL2._0
                     else if (nr > 3) { grid[h, w].SetNewState(' '); } //overcrowd
                     else if (nr == 3) { grid[h, w].SetNewState('*'); } //born
                     else if (nr == 2) { grid[h, w].SetNewState(grid[h, w].GetState()); } // stay same
+                    //else if (nr == 0) { grid[h, w].SetNewState('*'); }//c moi qui a rajouter
                 }
             }
         }

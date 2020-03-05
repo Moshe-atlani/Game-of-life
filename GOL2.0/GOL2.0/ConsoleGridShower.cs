@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GOL2._0
 {
-    class ConsoleGridShower: interface_IGridShower
+    class ConsoleGridShower: IGridShower
     {
-        public void show(Board board)
+        public void Show(Board board)
         {
             var grid = board.getGrid();
             for (int i = 0; i < grid.GetLength(0); i++)

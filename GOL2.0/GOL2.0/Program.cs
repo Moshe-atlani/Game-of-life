@@ -17,7 +17,7 @@ namespace GOL2._0
             //TimeSpan ts = new TimeSpan(0, 0, 1);
             for (int i = 0; i < 300; i++)
             {
-                shower.show(board);
+                shower.Show(board);
                 board.update();//je pense que dans cette peoula il faut touche le coeur de chaque cell
                                //shower.show(board);
                 Thread.Sleep(300);
