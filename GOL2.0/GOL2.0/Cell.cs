@@ -8,11 +8,13 @@ namespace GOL2._0
 {
     public class Cell
     {
-        private char state = ' ';
+        private char state ;
         private char newState;
 
         public Cell()
-        { }
+        {
+            state = ' ';
+        }
 
         public Cell(char state)//rempli this.state
         {

@@ -11,18 +11,20 @@ namespace GOL2._0
     {
         static void Main(string[] args)
         {
-            Board board = new Board();
-            ConsoleGridShower shower = new ConsoleGridShower();
+           
+            Board b = new Board("board_example.txt");
+            //Board board = new Board(4,4);
+            //ConsoleGridShower shower = new ConsoleGridShower();
 
-            //TimeSpan ts = new TimeSpan(0, 0, 1);
-            for (int i = 0; i < 300; i++)
-            {
-                shower.Show(board);
-                board.update();//je pense que dans cette peoula il faut touche le coeur de chaque cell
-                               //shower.show(board);
-                Thread.Sleep(300);
-                Console.Clear();
-            }
+            ////TimeSpan ts = new TimeSpan(0, 0, 1);
+            //for (int i = 0; i < 300; i++)
+            //{
+            //    shower.Show(board);
+            //    board.update();//je pense que dans cette peoula il faut touche le coeur de chaque cell
+            //                   //shower.show(board);
+            //    Thread.Sleep(300);
+            //    Console.Clear();
+            //}
         }
     }
 }

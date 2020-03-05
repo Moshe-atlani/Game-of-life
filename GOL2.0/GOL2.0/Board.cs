@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,16 @@ namespace GOL2._0
         private int height = 3; //bottom right pos: grid[height-1][width-1]
         private int width = 3;
         //pas trop compri
+        private int lenght;
+        private int width_b;
+        private string v;
 
-        public Board()
+        public Board(int lenght = 10, int width_b = 10)
         {
-            grid = new Cell[10, 10];
+            this.lenght = lenght;
+            this.width_b = width_b;
+
+            grid = new Cell[lenght, width_b];
             Random rnd = new Random();
             for (int row = 0; row < grid.GetLength(0); row++)
             {
@@ -28,10 +35,56 @@ namespace GOL2._0
                         grid[row, col].SetNewState('*');
                         grid[row, col].updateState();
                     }
-                  //  Console.Write(grid[row, col].GetState() );
+                    //  Console.Write(grid[row, col].GetState() );
                 }
-               // Console.WriteLine();
+                // Console.WriteLine();
             }
+        }
+
+        public Board(string boardFilepath)//sa me parai pas mal/ faire un CR
+        {
+            string content = File.ReadAllText(boardFilepath);
+
+            int countRN = 0;
+            int col = 0;
+            int row = 0;
+
+            while (content != null)
+            {
+                if (content.Last() == ' ' || content.Last() == '*')
+                    col++;
+                else if (countRN == 4)
+                {
+                    row++;
+                    countRN = 0;
+                }
+                else
+                    countRN++;
+
+                content.Remove(1);
+            }
+            grid = new Cell[row, col];
+            //row = 0;
+            //col = 0;
+            while (content != null)
+            {
+                if (content.First() == ' ' || content.First() == '*')
+                {
+                    grid[row, col].SetNewState(content.First());
+                    col--;
+                }
+                else if (countRN == 4)
+                {
+                    row--;
+                    countRN = 0;
+                }
+                else
+                    countRN++;
+
+            }
+
+
+            Console.WriteLine(content);
         }
 
         public Cell[,] getGrid()
@@ -111,7 +164,7 @@ namespace GOL2._0
 
         public bool isAlive(int row, int col)//ici
         {
-            if (row < 0 || col < 0 || row >= 10 || col >=10)//j ai rajouter 
+            if (row < width_b || col < lenght || row >= width_b || col >= lenght)//j ai rajouter 
                 return false;
             return grid[row, col].GetState() == '*';
         }
