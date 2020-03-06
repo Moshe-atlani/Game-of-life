@@ -48,8 +48,8 @@ namespace GOL2._0
             int countRN = 0;
             int col = 0;
             int row = 0;
-
-            while (content != null)
+            
+            while (content != null)//verifi combien y a til de col et row pour pouvoir fair le new cell
             {
                 if (content.Last() == ' ' || content.Last() == '*')
                     col++;
@@ -61,30 +61,31 @@ namespace GOL2._0
                 else
                     countRN++;
 
-                content.Remove(1);
+                content.Remove(content.Length - 1);//remove the last char
             }
             grid = new Cell[row, col];
             //row = 0;
             //col = 0;
-            while (content != null)
+            //content = File.ReadAllText(boardFilepath);//if content are empty
+            int x = 0, y = 0;
+            while (content != null)//fulfilled the grid 
             {
-                if (content.First() == ' ' || content.First() == '*')
+                if (content.Last() == ' ' || content.Last() == '*')
                 {
-                    grid[row, col].SetNewState(content.First());
-                    col--;
+                    grid[x, y].SetNewState(content.First());
+                    x++;
                 }
                 else if (countRN == 4)
                 {
-                    row--;
+                    y++;
                     countRN = 0;
                 }
                 else
                     countRN++;
 
+                content.Remove(0, 1);//remove the first char
             }
-
-
-            Console.WriteLine(content);
+            
         }
 
         public Cell[,] getGrid()
